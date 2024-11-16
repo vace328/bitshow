@@ -18,10 +18,10 @@ function getShows(url) {
 }
 
 function displayItem(data) {
-    const firstFiftyShows = data?.slice(0, 50);
-    // console.log(firstFiftyShows.length);
+  const firstFiftyShows = data?.slice(0, 50);
+  // console.log(firstFiftyShows);
 
-    firstFiftyShows.forEach((show) => {
+  firstFiftyShows.forEach((show) => {
     const showCard = document.createElement("div");
     console.log(show);
     // console.log(show.image.original);
