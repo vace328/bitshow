@@ -6,6 +6,8 @@ footer.innerText += ` ${year}`;
 // content display
 const URL = "https://api.tvmaze.com/shows";
 const display = document.querySelector("#content-wrapper");
+const search = document.querySelector("#search");
+const searchResults = document.querySelector("#search-results");
 
 function getShows(url) {
   // const url = baseUrl + id;
@@ -23,7 +25,7 @@ function displayItem(data) {
 
   firstFiftyShows.forEach((show) => {
     const showCard = document.createElement("div");
-    console.log(show);
+    // console.log(show);
     // console.log(show.image.original);
     showCard.classList.add("card");
     display.append(showCard);
@@ -46,6 +48,42 @@ function displayItem(data) {
   });
 }
 
+// FILTER SHOWS
+function filterShows(query, container) {
+  const searchUrl = `https://api.tvmaze.com/search/shows?q=${query}`;
+  // https://api.tvmaze.com/search/shows?q=girls
+  fetch(searchUrl)
+    .then((res) => res.json())
+    .then((data) => {
+      displayFilteredData(data, container);
+    })
+    .catch((err) => console.log(err));
+}
+
+function displayFilteredData(data, container) {
+  const firstTen = data?.slice(0, 10);
+  if (firstTen.length > 0) {
+    container.style.display = "block";
+    container.innerHTML = "";
+    firstTen.forEach((showItem) => {
+      const result = document.createElement("p");
+      result.id = showItem?.show?.id;
+      result.innerText = showItem?.show?.name;
+      container.append(result);
+    });
+  }
+  console.log(firstTen);
+}
+
+search.addEventListener("keyup", () => {
+  if (search.value.length === 0) {
+    searchResults.style.display = "none";
+  } else {
+    console.log(search.value);
+
+    filterShows(search.value, searchResults);
+  }
+});
 window.addEventListener("load", () => {
   getShows(URL);
 });
