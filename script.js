@@ -70,9 +70,30 @@ function displayFilteredData(data, container) {
       result.id = showItem?.show?.id;
       result.innerText = showItem?.show?.name;
       container.append(result);
+      result.addEventListener("click", () => {
+        getSingleShow(URL, result.id, container);
+      });
     });
   }
   console.log(firstTen);
+}
+
+function getSingleShow(baseURL, id, container) {
+  const url = `${baseURL}/${id}`;
+  console.log(url);
+  fetch(url)
+    .then((res) => res.json())
+    .then((data) => {
+      dispalySingleShowPage(data, container);
+    })
+    .catch((err) => console.log(err));
+}
+
+function dispalySingleShowPage(data, searchResultsContainer) {
+  if (searchResultsContainer) {
+    searchResultsContainer.style.display = "none";
+  }
+  console.log(data.id);
 }
 
 search.addEventListener("keyup", () => {
