@@ -43,6 +43,9 @@ function displayItem(data) {
     const title = document.createElement("h2");
     title.innerText = show.name;
     titleWrapper.append(title);
+    titleWrapper.addEventListener("click", () => {
+      getSingleShow(URL, show.id);
+    });
 
     showCard.append(titleWrapper);
   });
@@ -94,6 +97,7 @@ function dispalySingleShowPage(data, searchResultsContainer) {
     searchResultsContainer.style.display = "none";
   }
   console.log(data.id);
+  window.open("/single-show/single-show.html", "_self");
 }
 
 search.addEventListener("keyup", () => {
