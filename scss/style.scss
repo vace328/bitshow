@@ -43,6 +43,7 @@ body {
 }
 main {
   padding: 10px 20px;
+  min-height: calc(100vh - 58px - 90px);
 }
 .sr-only {
   position: absolute;
@@ -65,7 +66,3 @@ li {
 .hide-container {
   display: none;
 }
-
-// .content-wrapper {
-//   padding: 20px 10px;
-// }

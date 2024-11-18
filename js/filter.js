@@ -54,12 +54,45 @@ function filterShows(query, container) {
     window.open("/single-show/single-show.html", "_self");
   }
   
-  search.addEventListener("keyup", () => {
+  // search.addEventListener("keyup", () => {
+  //   if (search.value.length === 0) {
+  //     searchResults.style.display = "none";
+  //   } else {
+  //     console.log(search.value);
+  
+  //     filterShows(search.value, searchResults);
+  //   }
+  // });
+
+  const handleKeyUp = debounce((ketPress) => {
     if (search.value.length === 0) {
       searchResults.style.display = "none";
     } else {
-      console.log(search.value);
-  
+      console.log(search.value);  
       filterShows(search.value, searchResults);
     }
-  });
+    }, 300);
+
+
+  search.addEventListener("keyup", handleKeyUp);
+
+
+
+  // debounce example
+
+  function debounce(callback, wait) {
+    let timeoutId = null;
+    return (...args) => {
+      window.clearTimeout(timeoutId);
+      timeoutId = window.setTimeout(() => {
+        callback(...args);
+      }, wait);
+    };
+  }
+
+  // const handleMouseMove = debounce((mouseEvent) => {
+  //   // Do stuff with the event!
+  // }, 500);
+  
+  // document.addEventListener('mousemove', handleMouseMove);    // Add listener
+  // document.removeEventListener('mousemove', handleMouseMove); // Remove listener
