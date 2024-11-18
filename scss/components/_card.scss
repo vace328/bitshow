@@ -1,0 +1,16 @@
+.card {
+    width: 100%;
+    // padding-bottom: 10px;
+    border: 1px solid black;
+    h3 {
+        padding-left: 10px;
+        cursor: pointer;
+    }
+}
+.thumbnail {
+    width: 100%;
+    margin-bottom: 30px;
+    img {
+        width: 100%;
+    }
+}

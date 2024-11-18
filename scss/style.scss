@@ -18,6 +18,7 @@
 // @import "components/buttons";
 // @import "components/dropdown";
 // @import "components/navigation";
+@import "components/card";
 
 /*----------  layout
 ------------------------------------------------------------------------------*/
@@ -28,6 +29,7 @@
 
 /*----------  pages
 ------------------------------------------------------------------------------*/
+@import "pages/landing";
 
 * {
   box-sizing: border-box;

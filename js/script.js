@@ -36,7 +36,7 @@ function displayItem(data) {
 
     // title
     const titleWrapper = document.createElement("div");
-    const title = document.createElement("h2");
+    const title = document.createElement("h3");
     title.innerText = show.name;
     titleWrapper.append(title);
     titleWrapper.addEventListener("click", () => {
