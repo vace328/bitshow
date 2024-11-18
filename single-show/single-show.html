@@ -7,8 +7,35 @@
     <title>Show</title>
 </head>
 <body>
-    <h1>Single show</h1>
-    <button id="btn-back" class="btn-back">&#8592; Back</button>
+    <header>
+        <h1>Bit Show</h1>
+        <div class="search">
+            <input id="search" type="text" autocomplete="off">
+            <div id="search-results" class="search-results">
+
+            </div>
+        </div>
+    </header>
+    <main>
+        <button id="btn-back" class="btn-back">&#8592; Back</button>
+        <h2 id="show-title"></h2>
+        <div id="img-wrapper">
+            <img id="show-img" src="" alt="tv show image">
+        </div>
+        <div id="details">
+            <div class="show-detail">
+                <h3 id="seasons-title">Seasons</h3>
+                <ul id="seasons"></ul>
+            </div>        
+            <div id="cast" class="show-detail">
+                <h3>Cast</h3>
+            </div>        
+        </div>
+        <div id="summary">
+            <h3>Show details</h3>
+        </div>
+    </main>
+    <footer>Copyright &#xa9; Bit Student </footer>
     <script src="./single-show.js"></script>
 </body>
 </html>

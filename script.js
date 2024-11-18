@@ -10,7 +10,6 @@ const search = document.querySelector("#search");
 const searchResults = document.querySelector("#search-results");
 
 function getShows(url) {
-  // const url = baseUrl + id;
   fetch(url)
     .then((res) => res.json())
     .then((data) => {
@@ -20,8 +19,13 @@ function getShows(url) {
 }
 
 function displayItem(data) {
-  const firstFiftyShows = data?.slice(0, 50);
-  // console.log(firstFiftyShows);
+  const sortedResults = data.sort((a, b) => {
+    if (a.rating.average && b.rating.average) {
+      return b.rating.average - a.rating.average;
+    }
+  });
+  const firstFiftyShows = sortedResults?.slice(0, 50);
+  console.log(firstFiftyShows);
 
   firstFiftyShows.forEach((show) => {
     const showCard = document.createElement("div");
@@ -96,7 +100,8 @@ function dispalySingleShowPage(data, searchResultsContainer) {
   if (searchResultsContainer) {
     searchResultsContainer.style.display = "none";
   }
-  console.log(data.id);
+  console.log(data);
+  localStorage.setItem("showDetails", JSON.stringify(data));
   window.open("/single-show/single-show.html", "_self");
 }
 
