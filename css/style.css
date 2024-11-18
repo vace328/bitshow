@@ -70,7 +70,7 @@ h3 {
   color: rgb(104, 104, 245);
 }
 
-p, li {
+p, li, footer {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   line-height: 30px;
 }
@@ -162,6 +162,13 @@ header .search-results p {
     margin: 0;
   }
 }
+footer {
+  padding: 30px 20px;
+  background-color: #343a40;
+  color: white;
+  text-align: center;
+}
+
 .content-wrapper {
   display: flex;
   flex-direction: column;
