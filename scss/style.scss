@@ -1,0 +1,54 @@
+// @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Raleway:wght@400;700&family=Manrope:wght@400&display=swap');
+
+/*----------  base
+------------------------------------------------------------------------------*/
+@import "base/reset";
+@import "base/variables";
+// @import "base/colors";
+@import "base/typography";
+
+/*----------  helpers
+------------------------------------------------------------------------------*/
+// @import "helpers/mixins";
+// @import "helpers/functions";
+
+/*----------  components
+------------------------------------------------------------------------------*/
+// @import "components/icons";
+// @import "components/buttons";
+// @import "components/dropdown";
+// @import "components/navigation";
+
+/*----------  layout
+------------------------------------------------------------------------------*/
+// @import "layout/forms";
+@import "layout/header";
+@import "layout/footer";
+// @import "layout/grid";
+
+/*----------  pages
+------------------------------------------------------------------------------*/
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100vh;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0, 0);
+  border: 0;
+}
+
+// .content-wrapper {
+//   padding: 20px 10px;
+// }
