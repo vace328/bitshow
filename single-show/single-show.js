@@ -16,7 +16,7 @@ const castURL = `https://api.tvmaze.com/shows/${singleShow.id}/cast`;
 console.log(seasonsTitle);
 
 title.innerText = singleShow.name;
-img.src = singleShow?.image?.medium ?? `https://placehold.co/500x700/orange/white?text=Poster+unavailable`;
+img.src = singleShow?.image?.original ?? `https://placehold.co/500x700/orange/white?text=Poster+unavailable`;
 const summaryContent = singleShow?.summary ?? "N/A";
 summary.innerHTML += summaryContent;
 
@@ -35,8 +35,8 @@ function displaySeasons(data, container, title) {
   console.log(data);
   if (data.length > 0) {
     title.innerText += ` (${data.length})`;
+    const seasons = document.createElement("ul");
     data.forEach((season) => {
-      const seasons = document.createElement("ul");
       const seasonDuration = document.createElement("li");
       seasonDuration.innerText = `${season.premiereDate ?? "N/A"} - ${season.endDate ?? "N/A"}`;
       seasons.append(seasonDuration);
@@ -62,10 +62,12 @@ function getCast(url) {
 function displayCast(data, container) {
   console.log(data);
   if (data.length > 0) {
+    const castList = document.createElement("ul");
     data.forEach((actor) => {
-      const cast = document.createElement("li");
-      cast.innerText = `${actor.person.name ?? "N/A"}`;
-      container.append(cast);
+      const actorListItem = document.createElement("li");
+      actorListItem.innerText = `${actor.person.name ?? "N/A"}`;
+      castList.append(actorListItem);
+      container.append(castList);
     });    
   } else {
     const msg = document.createElement("p");

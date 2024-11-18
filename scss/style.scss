@@ -30,6 +30,7 @@
 /*----------  pages
 ------------------------------------------------------------------------------*/
 @import "pages/landing";
+@import "pages/singleShow";
 
 * {
   box-sizing: border-box;
@@ -52,6 +53,10 @@ main {
   overflow: hidden;
   clip: rect(0, 0, 0, 0, 0);
   border: 0;
+}
+
+li {
+  list-style-type: disc;
 }
 
 // .content-wrapper {
