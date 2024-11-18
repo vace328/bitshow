@@ -11,7 +11,6 @@ const seasons = document.querySelector("#seasons");
 const cast = document.querySelector("#cast");
 const summary = document.querySelector("#summary");
 const seasonsTitle = document.querySelector("#seasons-title");
-// console.log(singleShow);
 const seasonsURL = `https://api.tvmaze.com/shows/${singleShow.id}/seasons`;
 const castURL = `https://api.tvmaze.com/shows/${singleShow.id}/cast`;
 console.log(seasonsTitle);
@@ -34,12 +33,20 @@ function getSeasons(url) {
 
 function displaySeasons(data, container, title) {
   console.log(data);
-  title.innerText += ` (${data.length})`;
-  data.forEach((season) => {
-    const seasonDuration = document.createElement("li");
-    seasonDuration.innerText = `${season.premiereDate ?? "N/A"} - ${season.endDate ?? "N/A"}`;
-    container.append(seasonDuration);
-  });
+  if (data.length > 0) {
+    title.innerText += ` (${data.length})`;
+    data.forEach((season) => {
+      const seasons = document.createElement("ul");
+      const seasonDuration = document.createElement("li");
+      seasonDuration.innerText = `${season.premiereDate ?? "N/A"} - ${season.endDate ?? "N/A"}`;
+      seasons.append(seasonDuration);
+      container.append(seasons);
+    });
+  } else {
+    const msg = document.createElement("p");
+    msg.innerText = "No data available";
+    cast.append(msg);
+  }
 }
 
 // CAST
@@ -54,14 +61,18 @@ function getCast(url) {
 
 function displayCast(data, container) {
   console.log(data);
-  data.forEach((actor) => {
-    const cast = document.createElement("li");
-    cast.innerText = `${actor.person.name ?? "N/A"}`;
-    container.append(cast);
-  });
+  if (data.length > 0) {
+    data.forEach((actor) => {
+      const cast = document.createElement("li");
+      cast.innerText = `${actor.person.name ?? "N/A"}`;
+      container.append(cast);
+    });    
+  } else {
+    const msg = document.createElement("p");
+    msg.innerText = "No data available";
+    cast.append(msg);
+  }
 }
-
-
 window.addEventListener("load", () => {
   getCast(castURL)
   getSeasons(seasonsURL);
