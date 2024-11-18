@@ -14,7 +14,9 @@ header {
     width: 100%;
     max-width: 200px;
     margin: 0 auto;
-    position: relative;
+    position: absolute;
+    top: 5px;
+    right: 100px;
   }
   .search input {
     width: 100%;
@@ -22,14 +24,21 @@ header {
   }
   .search-results {
     display: block;
-    position: absolute;
-    bottom: -300px;
-    left: 0;
+    // position: absolute;
+    // bottom: -300px;
+    // left: 0;
     width: 100%;
-    min-height: 300px;
+    // min-height: 300px;
     background-color: $primary_lvl_1;
     border: 1px solid $primary_lvl_2;
     display: none;
+    padding: 0 10px;
+  }
+
+  .search-results p {
+    padding: 10px 0 5px;
+    border-bottom: 1px solid #000;
+    text-align: left;
   }
 }
 

@@ -15,7 +15,11 @@ function filterShows(query, container) {
   function displayFilteredData(data, container) {
     const firstTen = data?.slice(0, 10);
     if (firstTen.length > 0) {
+      // console.log(container.offsetHeight);
       container.style.display = "block";
+      // container.style.bottom = `${-container.offsetHeight}px`;
+      // container.style.minHeight = `${-container.offsetHeight}px`;
+      
       container.innerHTML = "";
       firstTen.forEach((showItem) => {
         const result = document.createElement("p");
