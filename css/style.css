@@ -90,6 +90,14 @@ p, li, footer {
   cursor: pointer;
 }
 
+.btn-show-more {
+  margin-top: 20px;
+  margin-left: 30px;
+  padding: 5px 20px;
+  background-color: #343a40;
+  color: white;
+}
+
 .card {
   width: 100%;
   border: 1px solid black;
@@ -273,4 +281,12 @@ main {
 
 li {
   list-style-type: disc;
+}
+
+.show-container {
+  display: block;
+}
+
+.hide-container {
+  display: none;
 }/*# sourceMappingURL=style.css.map */
