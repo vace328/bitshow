@@ -51,7 +51,9 @@ function filterShows(query, container) {
     }
     // console.log(data);
     localStorage.setItem("showDetails", JSON.stringify(data));
-    window.open("/single-show/single-show.html", "_self");
+    // window.open("/single-show/single-show.html", "_self");
+    window.location.href = "https://vace328.github.io/single-show/single-show.html";
+    // window.open("/single-show/single-show.html", "_self");
   }
   
   // search.addEventListener("keyup", () => {
